@@ -1,0 +1,15 @@
+<section id="subscribe-form">
+    <div>
+        <h2>Subscribe</h2>
+        <p>Would you like to receive newsletter about the development of Lantrn?</p>
+
+        <form>
+            <label>
+                <input type="email" placeholder="email@email.com">
+            </label>
+            <input type="submit" value="Subscribe">
+        </form>
+
+        <p>We email a few times a year, and your email is not shared with anyone.</p>
+    </div>
+</section>

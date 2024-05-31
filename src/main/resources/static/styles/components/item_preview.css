@@ -1,0 +1,17 @@
+a.item-preview {
+    display: block;
+
+    width: auto;
+
+    border-radius: 6px;
+
+    background: var(--half-transparent-white);
+}
+
+a.item-preview > div {
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

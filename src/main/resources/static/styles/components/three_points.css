@@ -1,0 +1,17 @@
+section#three-points {
+    padding-top: 10rem;
+
+    grid-template-columns: 1fr 2fr;
+}
+
+section#three-points div.point {
+    display: grid;
+    grid-template-columns: 2em 1fr;
+    gap: 1em;
+}
+
+section#three-points div.point div.point-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

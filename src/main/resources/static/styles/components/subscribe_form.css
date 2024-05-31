@@ -1,0 +1,19 @@
+section#subscribe-form {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+}
+
+section#subscribe-form > div {
+    width: fit-content;
+
+    margin: auto auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+section#subscribe-form form input[type="email"] {
+    width: 40ch;
+    margin-right: 1rem;
+}

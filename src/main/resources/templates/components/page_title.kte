@@ -1,0 +1,16 @@
+@param title: String
+@param subtitle: String
+@param backButton: String = ""
+@param backUrl: String = ""
+
+<link rel="stylesheet" href="/static/styles/components/page_title.css">
+
+<section id="page-title">
+    @if (backButton != null)
+        <a href="${backUrl}">${backButton}</a>
+    @else
+        <a></a>
+    @endif
+    <h1 class="page-title">${title}</h1>
+    <p class="page-subtitle">${subtitle}</p>
+</section>

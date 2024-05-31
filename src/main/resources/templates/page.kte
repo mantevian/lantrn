@@ -1,0 +1,21 @@
+@import gg.jte.Content
+
+@param pageName: String
+@param content: Content
+
+<html>
+<head>
+    <link rel="stylesheet" href="/static/styles/main.css">
+    <link rel="stylesheet" href="/static/styles/text.css">
+    <link rel="stylesheet" href="/static/styles/colors.css">
+    <title>@template.translated_text(key = "page.${pageName}")</title>
+</head>
+
+<body>
+
+@template.components.header(selectedItem = pageName)
+${content}
+@template.components.footer()
+
+</body>
+</html>

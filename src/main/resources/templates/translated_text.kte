@@ -1,0 +1,5 @@
+@import xyz.mantevian.lantrn.localization.Localization
+
+@param key: String
+
+${Localization.localize("en_us", key)}

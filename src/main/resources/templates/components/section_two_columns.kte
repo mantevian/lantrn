@@ -1,0 +1,16 @@
+@import gg.jte.Content
+
+@param id: String
+@param left: Content
+@param right: Content
+@param classes: String = ""
+
+<section id="${id}" class="two-columns ${classes}">
+    <div class="left">
+        ${left}
+    </div>
+
+    <div class="right">
+        ${right}
+    </div>
+</section>

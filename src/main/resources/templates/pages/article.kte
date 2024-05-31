@@ -1,0 +1,15 @@
+@import xyz.mantevian.lantrn.article.Article
+
+@param article: Article
+
+<link rel="stylesheet" href="/static/styles/components/markdown.css">
+
+@template.page(pageName = article.name, content = @`
+
+    @template.components.page_title(title = article.name, subtitle = article.description)
+
+    <section id="article-content" class="markdown-container">
+        @template.markdown(text = article.content)
+    </section>
+
+`)

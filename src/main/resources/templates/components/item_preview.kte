@@ -1,0 +1,14 @@
+@param itemId: Int
+@param name: String
+@param author: String
+@param description: String
+
+<a class="item-preview" href="/explore/${itemId}">
+    <img src="" alt="${name}">
+
+    <div>
+        <h2>${name}</h2>
+        <p class="subtext">by ${author}</p>
+        <p class="description">${description}</p>
+    </div>
+</a>

@@ -1,0 +1,17 @@
+@import xyz.mantevian.lantrn.item.Item
+
+@param items: List<Item>
+
+<link rel="stylesheet" href="/static/styles/components/item_preview.css">
+
+@template.page(pageName = "explore", content = @`
+
+    @template.components.page_title(title = "Explore", subtitle = "Here you can see what other Lantrn users have created!")
+
+    <section id="grid">
+        @for (item in items)
+            @template.components.item_preview(itemId = item.id, name = item.name, author = item.author, description = item.description)
+        @endfor
+    </section>
+
+`)

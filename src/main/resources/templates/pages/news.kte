@@ -1,0 +1,17 @@
+@import xyz.mantevian.lantrn.article.Article
+
+@param articles: List<Article>
+
+<link rel="stylesheet" href="/static/styles/components/article_preview.css">
+
+@template.page(pageName = "news", content = @`
+
+    @template.components.page_title(title = "News", subtitle = "Get all the news about the development of Lantrn here!")
+
+    <section id="grid">
+        @for (article in articles)
+            @template.components.article_preview(articleId = article.id, name = article.name, date = article.dateCreated.toString(), description = article.description)
+        @endfor
+    </section>
+
+`)

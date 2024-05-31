@@ -1,0 +1,3 @@
+@param errorMessage: String
+
+@template.components.section_two_columns(id = "error", left = @`Error: ${errorMessage}`, right = @``)

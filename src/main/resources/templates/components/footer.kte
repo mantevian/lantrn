@@ -1,0 +1,15 @@
+<footer>
+
+    <a>Lantrn</a>
+
+    <nav>
+        <ul>
+            @for (name in listOf("", "news", "explore", "demo"))
+                <li>
+                    <a href="/${name}">@template.translated_text(key = "page.${name}")</a>
+                </li>
+            @endfor
+        </ul>
+    </nav>
+
+</footer>

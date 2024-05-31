@@ -1,0 +1,19 @@
+:root {
+    --black: #1D1839;
+    --dark: #373048;
+    --accent: #B3E000;
+    --accent-lighter: #E0FF89;
+    --accent-dim: #81837D;
+    --white: #fbf9ff;
+    --disabled: #B8B7C5;
+    --gray: #908C9B;
+
+    --white-accent: #FBFFE9;
+    --white-darker: #CCC3FF;
+    --black-lighter: #36165e;
+
+    --half-transparent-gray: rgba(149, 149, 149, 0.4);
+    --half-transparent-white: rgba(218, 216, 231, 0.25);
+
+    --transparent: rgba(0, 0, 0, 0);
+}

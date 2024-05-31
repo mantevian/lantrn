@@ -1,0 +1,5 @@
+@import xyz.mantevian.lantrn.markdown.MarkdownParser
+
+@param text: String
+
+$unsafe{MarkdownParser.parse(text)}
