@@ -30,3 +30,9 @@ class StopNode(offset: SvgUnit? = null, color: SvgPaint.RGB? = null, opacity: Do
         set("stop-opacity", opacity)
     }
 }
+class UseNode(href: String) : SvgNode("use"), Color, Transform, Position, Size {
+    init {
+        set("href", href)
+    }
+}
+class SymbolNode : SvgNode("symbol"), Position, Size

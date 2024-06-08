@@ -1,7 +1,6 @@
 package xyz.mantevian.lantrn.plugins
 
 import gg.jte.TemplateEngine
-import gg.jte.resolve.DirectoryCodeResolver
 import gg.jte.resolve.ResourceCodeResolver
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -9,11 +8,11 @@ import io.ktor.server.jte.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import xyz.mantevian.lantrn.article.Article
+import xyz.mantevian.lantrn.generator.FirefliesGenerator
 import xyz.mantevian.lantrn.generator.SimpleGridGenerator
+import xyz.mantevian.lantrn.generator.WavesGenerator
 import xyz.mantevian.lantrn.item.Item
 import xyz.mantevian.lantrn.svg.Encoder
-import xyz.mantevian.lantrn.svg.SVG
-import java.nio.file.Path
 import java.util.*
 
 fun Application.configureTemplating() {
@@ -59,8 +58,25 @@ fun Application.configureTemplating() {
             val id = call.parameters["item_id"]?.toIntOrNull() ?: -1
 
             items.getOrNull(id)?.let {
-                call.respond(JteContent("pages/item.kte", mapOf("item" to items[id], "svg" to Encoder.encode(SimpleGridGenerator().generate()))))
+                call.respond(JteContent("pages/item.kte", mapOf("item" to items[id], "svg" to Encoder.encode(SimpleGridGenerator().generate(5)))))
             } ?: call.respond(HttpStatusCode.NotFound)
+        }
+
+        get("/demo") {
+            call.respond(JteContent("pages/demo.kte", mapOf()))
+        }
+
+        get("/generate") {
+            val type = call.parameters["type"] ?: "simple_grid"
+            val n = call.parameters["n"]?.toIntOrNull() ?: 5
+
+            when (type) {
+                "simple_grid" -> call.respond(Encoder.encode(SimpleGridGenerator().generate(n)))
+                "fireflies" -> call.respond(Encoder.encode(FirefliesGenerator().generate(n)))
+                "waves" -> call.respond(Encoder.encode(WavesGenerator().generate(n)))
+            }
+
+
         }
     }
 }

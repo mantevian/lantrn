@@ -1,8 +1,8 @@
-<section id="hero">
-    <div></div>
-    <div>
-        <h1 class="hero-title">Lantrn</h1>
-        <p class="hero-subtitle">Lighting the way into the space of computational graphics, creating precise and infinite art using hand-tuned mathematics</p>
-        <a class="large colored">Run the demo</a>
-    </div>
-</section>
+@template.components.section_two_columns(id = "hero",
+left = @``,
+right = @`
+	<h1 class="hero-title">Lantrn</h1>
+	<p class="hero-subtitle">Lighting the way into the space of computational graphics, creating precise and infinite
+		art using hand-tuned mathematics</p>
+	<a class="large colored" href="/demo">Run the demo</a>
+`)

@@ -1,0 +1,21 @@
+section#demo {
+    grid-template-columns: 1fr 30ch;
+}
+
+section#demo > .left {
+    max-width: 800px;
+    aspect-ratio: 1;
+
+    outline: 1px solid var(--gray);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+section#demo input[type="number"] {
+    width: 16ch;
+}
+
+section#demo > .left > svg {
+    width: 100%;
+    height: 100%;
+}

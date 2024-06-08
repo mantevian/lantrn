@@ -1,0 +1,37 @@
+header {
+	width: 100%;
+	height: 5rem;
+
+	padding: 0 var(--side-padding);
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	background: var(--white);
+}
+
+header > nav > div {
+	gap: 3rem;
+}
+
+header > nav > div > ul {
+	flex-direction: row;
+}
+
+header > nav > details {
+	display: none;
+}
+
+header > nav > details > summary {
+	width: 56px;
+	height: 56px;
+
+	background: url("/static/icons/burger.svg") center no-repeat;
+	cursor: pointer;
+}
+
+header a, footer a {
+	position: relative;
+	z-index: 101;
+}

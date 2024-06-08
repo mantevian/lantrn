@@ -1,23 +1,55 @@
 @param selectedItem: String
 
 <header>
+	<a href="/" class="logo">Lantrn</a>
 
-    <a>Lantrn</a>
+	<nav>
+		<div>
+			<ul>
+				@for (name in listOf("", "news", "explore"))
+					<li>
+						@if (selectedItem == name)
+							<a class="selected">@template.translated_text(key = "page.${name}")</a>
+						@else
+							<a href="/${name}">@template.translated_text(key = "page.${name}")</a>
+						@endif
+					</li>
+				@endfor
+			</ul>
 
-    <nav>
-        <ul>
-            @for (name in listOf("", "news", "explore"))
-                <li>
-                    @if (selectedItem == name)
-                        <a class="selected">@template.translated_text(key = "page.${name}")</a>
-                    @else
-                        <a href="/${name}">@template.translated_text(key = "page.${name}")</a>
-                    @endif
-                </li>
-            @endfor
-        </ul>
-    </nav>
+			@if (selectedItem == "demo")
+				<a class="colored">@template.translated_text(key = "page.demo")</a>
+			@else
+				<a class="colored" href="/demo">@template.translated_text(key = "page.demo")</a>
+			@endif
+		</div>
 
-    <a class="colored">Demo</a>
+		<details>
+			<summary></summary>
+
+			<div>
+				<ul>
+					@for (name in listOf("", "news", "explore"))
+						<li>
+							@if (selectedItem == name)
+								<a class="selected">@template.translated_text(key = "page.${name}")</a>
+							@else
+								<a href="/${name}">@template.translated_text(key = "page.${name}")</a>
+							@endif
+						</li>
+					@endfor
+
+					<li>
+						@if (selectedItem == "demo")
+							<a class="colored">@template.translated_text(key = "page.demo")</a>
+						@else
+							<a class="colored" href="/demo">@template.translated_text(key = "page.demo")</a>
+						@endif
+					</li>
+				</ul>
+			</div>
+
+		</details>
+	</nav>
 
 </header>

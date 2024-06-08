@@ -12,90 +12,75 @@ import xyz.mantevian.lantrn.svg.unit.percent
 import xyz.mantevian.lantrn.svg.unit.px
 import kotlin.math.PI
 import kotlin.random.Random
+import kotlin.random.nextInt
 
 class SimpleGridGenerator : SvgGenerator("simple_grid") {
 
-    val n = 6
-    val random = Random
+	fun generate(n: Int): SVG {
+		val w = 1.0 * width / n
 
-    fun generate(): SVG {
-        val w = 1.0 * width / n
+		val svg = SVG(width, height)
 
-        val svg = SVG(width, height)
+		svg.addDefinition(RadialGradientNode().apply {
+			id = "gradient1"
+			focus(centerX = 0.0.px, centerY = 0.0.px, radius = 0.0.px)
+			center(centerX = 0.5.px, centerY = 0.5.px, radius = 1.0.px)
+			addStop(StopNode(offset = 0.0.percent, color = SvgPaint.RGB(random.nextDouble(0.0, 255.0), random.nextDouble(0.0, 255.0), random.nextDouble(0.0, 255.0))))
+			addStop(StopNode(offset = 100.0.percent, color = SvgPaint.RGB(random.nextDouble(0.0, 255.0), random.nextDouble(0.0, 255.0), random.nextDouble(0.0, 255.0))))
+		})
 
-        svg.addDefinition(RadialGradientNode().apply {
-            id = "gradient1"
-            focus(0.0.px, 0.0.px, 0.0.px)
-            center(0.5.px, 0.5.px, 1.0.px)
-            addStop(StopNode(offset = 0.0.percent, color = SvgPaint.RGB(255.0, 0.0, 0.0)))
-            addStop(StopNode(offset = 100.0.percent, color = SvgPaint.RGB(0.0, 0.0, 255.0)))
-        })
+		val g = GroupNode()
 
-        val g = GroupNode()
+		g.apply {
 
-        g.apply {
+			addChild(
+				PathNode()
+					.path(SvgPath().apply {
+						for (x in 0..<n) {
+							for (y in 0..<n) {
+								when (random.nextInt(1..15)) {
+									1 -> {
+										move(x * w, y * w)
+										lineRelative(w, w)
+										lineRelative(-w, 0.0)
+										lineRelative(0.0, -w)
+									}
+									2 -> {
+										move(x * w, y * w)
+										lineRelative(w, 0.0)
+										lineRelative(-w, w)
+										lineRelative(0.0, -w)
+									}
+									3 -> {
+										move(x * w, y * w)
+										lineRelative(w, 0.0)
+										lineRelative(0.0, w)
+										lineRelative(-w, -w)
+									}
+									4 -> {
+										move(x * w, y * w)
+										moveRelative(w, 0.0)
+										lineRelative(0.0, w)
+										lineRelative(-w, 0.0)
+										lineRelative(w, -w)
+									}
+									in 5..8 -> {
+										move(x * w, y * w)
+										lineRelative(w, 0.0)
+										lineRelative(0.0, w)
+										lineRelative(-w, 0.0)
+										lineRelative(0.0, -w)
+									}
+								}
+							}
+						}
+					})
+					.color(fill = SvgPaint.FromId("gradient1"), stroke = SvgPaint.Name("black"))
+			)
+		}
 
-            addChild(
-                PathNode()
-                    .path(SvgPath().apply {
-                        for (x in 0..<n) {
-                            for (y in 0..<n) {
-
-                                if (random.nextDouble() < 0.33) {
-                                    move(x * w, y * w)
-                                    lineRelative(w, w)
-                                    lineRelative(-w, 0.0)
-                                    lineRelative(0.0, -w)
-                                }
-
-                            }
-                        }
-                    })
-                    .color(fill = SvgPaint.None, stroke = SvgPaint.Name("black"))
-            )
-
-            addChild(
-                PathNode()
-                    .path(SvgPath().apply {
-                        for (x in 0..<n) {
-                            for (y in 0..<n) {
-
-                                if (random.nextDouble() < 0.33) {
-                                    move(x * w, y * w)
-                                    lineRelative(w, 0.0)
-                                    lineRelative(0.0, -w)
-                                    lineRelative(-w, 0.0)
-                                    lineRelative(0.0, w)
-                                }
-
-                            }
-                        }
-                    })
-                    .color(fill = SvgPaint.Name("black"), stroke = SvgPaint.None, fillOpacity = 0.2)
-            )
-
-            addChild(
-                PathNode()
-                    .path(SvgPath().apply {
-                        for (x in 0..<n) {
-                            for (y in 0..<n) {
-
-                                if (random.nextDouble() < 0.33) {
-                                    move(x * w, y * w)
-                                    circleRelative(w, 0.0, -PI * 0.5)
-                                    lineRelative(-w, 0.0)
-                                    lineRelative(0.0, w)
-                                }
-
-                            }
-                        }
-                    })
-                    .color(fill = SvgPaint.FromId("gradient1"))
-            )
-        }
-
-        svg.root.addChild(g)
-        return svg
-    }
+		svg.root.addChild(g)
+		return svg
+	}
 
 }

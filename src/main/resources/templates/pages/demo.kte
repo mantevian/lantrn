@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/static/styles/components/demo.css">
+
+@template.page(pageName="demo", content = @`
+
+    @template.components.page_title(title = "Demo", subtitle = "")
+
+    @template.components.section_two_columns(
+    id="demo",
+    left = @`
+
+    `,
+    right = @`
+        <form hx-get="/generate" hx-target=".left" hx-swap="innerHTML">
+            <label>
+                <select name="type">
+                    <option value="simple_grid">Simple Grid</option>
+                    <option value="fireflies">Fireflies</option>
+                    <option value="waves">Waves</option>
+                </select>
+            </label>
+
+            <label>
+                <input type="number" name="n">
+            </label>
+
+            <input type="submit" value="Generate">
+        </form>
+    `)
+
+`)
+
+<script src="https://unpkg.com/htmx.org@1.9.12"></script>

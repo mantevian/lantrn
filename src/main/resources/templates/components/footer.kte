@@ -1,6 +1,6 @@
 <footer>
 
-    <a>Lantrn</a>
+    <a href="/" class="logo">Lantrn</a>
 
     <nav>
         <ul>
@@ -11,5 +11,7 @@
             @endfor
         </ul>
     </nav>
+
+    <a>contact@email.com</a>
 
 </footer>

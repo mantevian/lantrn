@@ -3,18 +3,24 @@
 @param pageName: String
 @param content: Content
 
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="/static/styles/main.css">
-    <link rel="stylesheet" href="/static/styles/text.css">
-    <link rel="stylesheet" href="/static/styles/colors.css">
-    <title>@template.translated_text(key = "page.${pageName}")</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	<link rel="stylesheet" href="/static/styles/main.css">
+	<link rel="stylesheet" href="/static/styles/components/header.css">
+	<link rel="stylesheet" href="/static/styles/text.css">
+	<link rel="stylesheet" href="/static/styles/colors.css">
+	<link rel="stylesheet" href="/static/styles/media.css">
+	<title>@template.translated_text(key = "page.${pageName}")</title>
 </head>
 
 <body>
 
 @template.components.header(selectedItem = pageName)
-${content}
+<main>
+	${content}
+</main>
 @template.components.footer()
 
 </body>
