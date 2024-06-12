@@ -1,7 +1,6 @@
 package xyz.mantevian.lantrn.plugins
 
 import gg.jte.TemplateEngine
-import gg.jte.resolve.ResourceCodeResolver
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.jte.*
@@ -17,8 +16,7 @@ import java.util.*
 
 fun Application.configureTemplating() {
     install(Jte) {
-        val resolver = ResourceCodeResolver("templates")
-        templateEngine = TemplateEngine.create(resolver, gg.jte.ContentType.Html)
+        templateEngine = TemplateEngine.createPrecompiled(gg.jte.ContentType.Html)
     }
 
     val articles = mutableListOf<Article>()
@@ -75,8 +73,6 @@ fun Application.configureTemplating() {
                 "fireflies" -> call.respond(Encoder.encode(FirefliesGenerator().generate(n)))
                 "waves" -> call.respond(Encoder.encode(WavesGenerator().generate(n)))
             }
-
-
         }
     }
 }
