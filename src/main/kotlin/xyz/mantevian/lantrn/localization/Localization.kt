@@ -9,7 +9,7 @@ object Localization {
 
 	fun reload() {
 		for (l in languages) {
-			locales[l] = Locale(Json.decodeFromString(ResourceUtil.getTextFile("/static/localization/${l}.json") ?: ""))
+			locales[l] = Locale(Json.decodeFromString(ResourceUtil.readFile("/static/localization/${l}.json") ?: ""))
 		}
 	}
 

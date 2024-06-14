@@ -31,6 +31,12 @@ header > nav > details > summary {
 	cursor: pointer;
 }
 
+header > nav > details > div > ul {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
 header a, footer a {
 	position: relative;
 	z-index: 101;

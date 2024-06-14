@@ -1,17 +1,41 @@
 section#three-points {
-    padding-top: 10rem;
+	padding-top: 10rem;
 
-    grid-template-columns: 1fr 2fr;
+	grid-template-columns: 1fr 2fr;
 }
 
 section#three-points div.point {
-    display: grid;
-    grid-template-columns: 2em 1fr;
-    gap: 1em;
+	z-index: -1;
+
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	padding-left: 74px;
 }
 
-section#three-points div.point div.point-details {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+section#three-points div.point::before {
+	position: absolute;
+	left: 0;
+
+	display: block;
+
+	width: 50px;
+	aspect-ratio: 1;
+
+	content: '';
+}
+
+section#three-points div.point:nth-child(1)::before {
+	background: url("/static/icons/brush.svg");
+}
+
+section#three-points div.point:nth-child(2)::before {
+	background: url("/static/icons/globe.svg");
+}
+
+section#three-points div.point:nth-child(3)::before {
+	background: url("/static/icons/external.svg") no-repeat center;
 }

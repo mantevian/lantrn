@@ -18,7 +18,7 @@
 			</ul>
 
 			@if (selectedItem == "demo")
-				<a class="colored">@template.translated_text(key = "page.demo")</a>
+				<a class="colored selected">@template.translated_text(key = "page.demo")</a>
 			@else
 				<a class="colored" href="/demo">@template.translated_text(key = "page.demo")</a>
 			@endif

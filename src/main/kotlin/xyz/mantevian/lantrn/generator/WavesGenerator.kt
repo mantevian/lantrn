@@ -4,8 +4,14 @@ import xyz.mantevian.lantrn.svg.*
 import xyz.mantevian.lantrn.svg.component.*
 import xyz.mantevian.lantrn.svg.paint.SvgPaint
 import xyz.mantevian.lantrn.svg.unit.px
+import kotlin.random.Random
 
-class WavesGenerator : SvgGenerator("fireflies") {
+class WavesGenerator(
+	seed: Int = 0
+) : SvgGenerator("fireflies") {
+
+	private val random = Random(seed)
+
 	fun generate(n: Int): SVG {
 		val w = 800.0 / n
 

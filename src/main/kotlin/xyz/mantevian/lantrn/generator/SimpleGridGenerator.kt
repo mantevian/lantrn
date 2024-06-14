@@ -14,7 +14,11 @@ import kotlin.math.PI
 import kotlin.random.Random
 import kotlin.random.nextInt
 
-class SimpleGridGenerator : SvgGenerator("simple_grid") {
+class SimpleGridGenerator(
+	seed: Int = 0
+) : SvgGenerator("simple_grid") {
+
+	private val random = Random(seed)
 
 	fun generate(n: Int): SVG {
 		val w = 1.0 * width / n

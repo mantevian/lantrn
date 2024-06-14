@@ -6,12 +6,23 @@
 
 @template.page(pageName = "explore", content = @`
 
-    @template.components.page_title(title = "Explore", subtitle = "Here you can see what other Lantrn users have created!")
+	@template.components.page_title(title = "Explore", subtitle = "Here you can see what other Lantrn users have created!")
 
-    <section id="grid">
-        @for (item in items)
-            @template.components.item_preview(itemId = item.id, name = item.name, author = item.author, description = item.description)
-        @endfor
-    </section>
+	<section id="grid">
+		@for (item in items)
+			@template.components.item_preview(itemId = item.id, name = item.name, author = item.author, description = item.description, svg = item.svg)
+		@endfor
+	</section>
 
 `)
+
+@raw
+<script>
+	let svgs = document.querySelectorAll("svg");
+	for (let svg of svgs) {
+		let img = document.createElement("img");
+		img.src = `data:image/svg+xml,${encodeURIComponent(new XMLSerializer().serializeToString(svg))}`;
+		svg.parentNode.replaceChild(img, svg);
+	}
+</script>
+@endraw

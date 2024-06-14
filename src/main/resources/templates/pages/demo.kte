@@ -1,32 +1,90 @@
+@import io.ktor.http.Parameters
+
 <link rel="stylesheet" href="/static/styles/components/demo.css">
 
 @template.page(pageName="demo", content = @`
 
-    @template.components.page_title(title = "Demo", subtitle = "")
+	@template.components.page_title(title = "Demo", subtitle = "")
 
-    @template.components.section_two_columns(
-    id="demo",
-    left = @`
+	@template.components.section_two_columns(
+	id="demo",
+	left = @`
 
-    `,
-    right = @`
-        <form hx-get="/generate" hx-target=".left" hx-swap="innerHTML">
-            <label>
-                <select name="type">
-                    <option value="simple_grid">Simple Grid</option>
-                    <option value="fireflies">Fireflies</option>
-                    <option value="waves">Waves</option>
-                </select>
-            </label>
+	`,
+	right = @`
+		<form class="generator-form" hx-get="/generate" hx-target=".left" hx-swap="innerHTML"
+		      hx-trigger="submit,custom-load">
+			<label>
+				<span>Type:</span>
+				<select name="type">
+					<option value="simple_grid">Simple Grid</option>
+					<option value="fireflies">Fireflies</option>
+					<option value="waves">Waves</option>
+				</select>
+			</label>
 
-            <label>
-                <input type="number" name="n">
-            </label>
+			<label>
+				<span>Number:</span>
+				<input type="number" name="n">
+			</label>
 
-            <input type="submit" value="Generate">
-        </form>
-    `)
+			<label>
+				<span>Seed:</span>
+				<input type="number" name="seed">
+			</label>
 
+			<div class="actions">
+				<input type="submit" value="Generate">
+				<a class="download-button" href="/generate?blank" download="blank.svg">Download</a>
+			</div>
+		</form>
+	`)
 `)
 
 <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+
+@raw
+<script>
+	let form = document.querySelector(".generator-form");
+	let downloadButton = document.querySelector(".download-button");
+
+	function updateDownload() {
+		let elements = [];
+		for (let i = 0; i < form.elements.length; i++) {
+			let e = form.elements[i];
+			if (e.name) {
+				elements.push([e.name, e.value]);
+			}
+		}
+
+		elements = elements.map(e => e.join('=')).join('&');
+
+		downloadButton.setAttribute("href", `/generate?${elements}`);
+		downloadButton.setAttribute("download", `${elements}.svg`);
+		history.replaceState("lantrn_generator", "", `/demo?${elements}`);
+	}
+
+	form.addEventListener("submit", _ => {
+		updateDownload();
+	});
+
+	document.addEventListener("DOMContentLoaded", _ => {
+		let params = new URLSearchParams(window.location.search);
+
+		for (let [key, value] of params) {
+			let element = document.querySelector(`label > *[name="${key}"]`);
+
+			if (element instanceof HTMLSelectElement) {
+				let selected = element.querySelector(`option[value=${value}]`);
+				selected.setAttribute("selected", "");
+			} else {
+				element.value = value;
+			}
+		}
+
+		updateDownload();
+
+		form.dispatchEvent(new Event("custom-load"));
+	});
+</script>
+@endraw

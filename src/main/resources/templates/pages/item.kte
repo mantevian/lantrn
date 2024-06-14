@@ -1,14 +1,13 @@
 @import xyz.mantevian.lantrn.item.Item
 
 @param item: Item
-@param svg: String
 
 @template.page(pageName = item.name, content = @`
 
-    @template.components.page_title(title = item.name, subtitle = "by ${item.author}")
+	@template.components.page_title(title = item.name, subtitle = "by ${item.author}")
 
-    <section id="item-content">
-        $unsafe{svg}
-    </section>
+	<section id="item-content">
+		$unsafe{item.svg}
+	</section>
 
 `)

@@ -8,8 +8,14 @@ import xyz.mantevian.lantrn.svg.component.gradient.focus
 import xyz.mantevian.lantrn.svg.paint.SvgPaint
 import xyz.mantevian.lantrn.svg.unit.percent
 import xyz.mantevian.lantrn.svg.unit.px
+import kotlin.random.Random
 
-class FirefliesGenerator : SvgGenerator("fireflies") {
+class FirefliesGenerator(
+	seed: Int = 0
+) : SvgGenerator("fireflies") {
+
+	private val random = Random(seed)
+
 	fun generate(n: Int): SVG {
 		val w = 800.0 / n
 

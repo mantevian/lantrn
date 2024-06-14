@@ -1,5 +1,5 @@
 section#demo {
-    grid-template-columns: 1fr 30ch;
+    display: flex;
 }
 
 section#demo > .left {
@@ -18,4 +18,15 @@ section#demo input[type="number"] {
 section#demo > .left > svg {
     width: 100%;
     height: 100%;
+}
+
+section#demo > .right {
+    flex-grow: 1;
+}
+
+section#demo > .right > form > label {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 100%;
+    align-items: center;
 }

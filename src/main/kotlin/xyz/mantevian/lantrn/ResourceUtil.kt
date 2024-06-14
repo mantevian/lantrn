@@ -7,7 +7,7 @@ object ResourceUtil {
 		return this.javaClass.getResource(path)
 	}
 
-	fun getTextFile(path: String): String? {
+	fun readFile(path: String): String? {
 		return this.javaClass.getResourceAsStream(path)?.bufferedReader()?.readLines()?.joinToString("")
 	}
 }

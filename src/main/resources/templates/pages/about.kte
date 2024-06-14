@@ -3,58 +3,43 @@
 
 @template.page(pageName="", content = @`
 
-    @template.components.hero()
+	@template.components.hero()
 
-    @template.components.section_two_columns(
-    id="about-computational-art",
-    left = @`
-        <h2>About computational art</h2>
-        <p>Computational art enthusiasts strive to explore the grand picture of creating art, bringing it to a new level
-            using technology. By designing the rules of a virtual canvas and spicing it up with some randomness, endless
-            possibilities are opening. Lantrn aims to show the beauty and freedom of computational art to you.</p>
-    `,
-    right = @`
+	@template.components.section_two_columns(
+	id="about-computational-art",
+	left = @`
+		<h2>About computational art</h2>
+		<p>Computational art enthusiasts strive to explore the grand picture of creating art, bringing it to a new level
+			using technology. By designing the rules of a virtual canvas and spicing it up with some randomness, endless
+			possibilities are opening. Lantrn aims to show the beauty and freedom of computational art to you.</p>
+	`,
+	right = @`
 
-    `)
+	`)
 
-    @template.components.section_two_columns(
-    id = "three-points",
-    left = @``,
-    right = @`
-        <div class="point">
-            <div>icon</div>
+	@template.components.section_two_columns(
+	id = "three-points",
+	left = @``,
+	right = @`
+		<div class="point">
+			<h2>Create</h2>
+			<p>Start creating computational artworks right away for free. To make it uniquely yours, we offer high
+				granularity of settings. Play around with different shapes, sizes and colors, discover various
+				fractals and ways of tiling.</p>
+		</div>
 
-            <div class="point-details">
-                <h2>Create</h2>
-                <p>Start creating computational artworks right away for free. To make it uniquely yours, we offer high
-                    granularity of settings. Play around with different shapes, sizes and colors, discover various
-                    fractals
-                    and ways of tiling.</p>
-            </div>
-        </div>
+		<div class="point">
+			<h2>Share</h2>
+			<p>If you need inspiration or want to share your ideas, check out the Explore page to see what other
+				users have made and upload your own work.</p>
+		</div>
 
-        <div class="point">
-            <div>icon</div>
+		<div class="point">
+			<h2>Use externally</h2>
+			<p>Feel free to download the generated images for your personal use, like a desktop wallpaper, as well
+				as for your own design projects. For commercial use, please reach out to us via email.</p>
+		</div>
+	`)
 
-            <div class="point-details">
-                <h2>Share</h2>
-                <p>If you need inspiration or want to share your ideas, check out the Explore page to see what other
-                    users
-                    have made and upload your own work.</p>
-            </div>
-        </div>
-
-        <div class="point">
-            <div>icon</div>
-
-            <div class="point-details">
-                <h2>Use externally</h2>
-                <p>Feel free to download the generated images for your personal use, like a desktop wallpaper, as well
-                    as
-                    for your own design projects. For commercial use, please reach out to us via email.</p>
-            </div>
-        </div>
-    `)
-
-    @template.components.subscribe_form()
+	@template.components.subscribe_form()
 `)
