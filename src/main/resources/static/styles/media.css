@@ -29,14 +29,6 @@
 		padding-top: 5rem;
 	}
 
-	header {
-		position: fixed;
-
-		box-shadow: -1px 21px 19px -14px rgba(0, 0, 0, 0.25);
-		-webkit-box-shadow: -1px 21px 19px -14px rgba(0, 0, 0, 0.25);
-		-moz-box-shadow: -1px 21px 19px -14px rgba(0, 0, 0, 0.25);
-	}
-
 	header > nav > div {
 		display: none;
 	}
@@ -48,22 +40,29 @@
 	header > nav > details > div {
 		position: absolute;
 		z-index: 100;
+		top: 5rem;
 		left: 0;
+
 		width: 100%;
 
 		padding: 2rem 1rem;
 
-		background: var(--white);
+		background: rgba(255, 255, 255, 0.5);
+		backdrop-filter: blur(20px);
 
 		box-shadow: -1px 21px 19px -14px rgba(0, 0, 0, 0.25);
 		-webkit-box-shadow: -1px 21px 19px -14px rgba(0, 0, 0, 0.25);
 		-moz-box-shadow: -1px 21px 19px -14px rgba(0, 0, 0, 0.25);
 	}
 
+	header > nav > details > div > ul {
+		gap: 0.5rem;
+	}
+
 	header > nav > details > div > ul > li > a {
 		padding: 2rem 1rem;
 		width: 100%;
-		background: var(--light-gray);
+		background: rgba(255, 255, 255, 0.75);
 	}
 
 	footer {
@@ -89,8 +88,13 @@
 	}
 
 	section#page-title {
-		height: fit-content !important;
+		height: fit-content;
+		padding-top: 2rem;
 		padding-bottom: 2rem;
+	}
+
+	section#page-title * {
+		height: fit-content !important;
 	}
 
 	section#grid {
@@ -99,5 +103,9 @@
 
 	section#demo {
 		display: block;
+	}
+
+	section#hero {
+		padding-top: 6rem;
 	}
 }

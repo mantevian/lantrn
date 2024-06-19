@@ -1,12 +1,31 @@
 section#three-points {
-	padding-top: 10rem;
+	position: relative;
+
+	margin-top: 10rem;
 
 	grid-template-columns: 1fr 2fr;
+
+	background-image: url("/static/backgrounds/3.svg");
+	background-repeat: no-repeat;
+	background-position: 0 -200px;
 }
 
-section#three-points div.point {
-	z-index: -1;
 
+section#three-points::before {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+
+	content: '';
+
+	background: linear-gradient(0deg, var(--white) 0%, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0) 90%, var(--white) 100%);
+}
+
+
+section#three-points div.point {
 	position: relative;
 
 	display: flex;
@@ -26,6 +45,12 @@ section#three-points div.point::before {
 	aspect-ratio: 1;
 
 	content: '';
+}
+
+section#three-points .right {
+	display: flex;
+	flex-direction: column;
+	gap: 4rem;
 }
 
 section#three-points div.point:nth-child(1)::before {

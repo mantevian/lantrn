@@ -1,5 +1,10 @@
 package xyz.mantevian.lantrn.article
 
-import java.util.Date
-
-data class Article (val id: Int, val name: String, val dateCreated: Date, val description: String, val content: String)
+data class Article(
+	val id: Int,
+	val name: String,
+	val dateCreated: String,
+	val description: String,
+	val imageUri: String,
+	val content: String
+)

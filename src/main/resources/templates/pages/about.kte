@@ -14,7 +14,7 @@
 			possibilities are opening. Lantrn aims to show the beauty and freedom of computational art to you.</p>
 	`,
 	right = @`
-
+		<img src="/static/backgrounds/2.svg" alt="About computational art">
 	`)
 
 	@template.components.section_two_columns(
@@ -43,3 +43,11 @@
 
 	@template.components.subscribe_form()
 `)
+
+<style>
+	body {
+		background-image: url("/static/backgrounds/1.svg");
+		background-repeat: no-repeat;
+		background-position: -210px -520px;
+	}
+</style>

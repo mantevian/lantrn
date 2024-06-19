@@ -1,21 +1,24 @@
 package xyz.mantevian.lantrn.svg.unit
 
-interface SvgUnit
+import kotlin.math.floor
 
-class PxUnit(private val value: Double) : SvgUnit {
-    override fun toString(): String {
-        return "$value"
-    }
+sealed interface SvgUnit {
+	class Px(private val value: Double) : SvgUnit {
+		override fun toString(): String {
+			return "${floor(value * 100) * 0.01}"
+		}
+	}
+
+	class Percent(private val value: Double) : SvgUnit {
+		override fun toString(): String {
+			return "${floor(value * 100) * 0.01}%"
+		}
+	}
 }
 
-class PercentUnit(private val value: Double) : SvgUnit {
-    override fun toString(): String {
-        return "${value}%"
-    }
-}
 
-val Double.px: PxUnit
-    get() = PxUnit(this)
+val Double.px: SvgUnit.Px
+	get() = SvgUnit.Px(this)
 
-val Double.percent: PercentUnit
-    get() = PercentUnit(this)
+val Double.percent: SvgUnit.Percent
+	get() = SvgUnit.Percent(this)

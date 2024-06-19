@@ -1,0 +1,32 @@
+section#item-content {
+	display: flex;
+}
+
+section#item-content > .left {
+	max-width: 800px;
+	aspect-ratio: 1;
+
+	outline: 1px solid var(--gray);
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+section#item-content input[type="number"] {
+	width: 16ch;
+}
+
+section#item-content > .left > svg {
+	width: 100%;
+	height: 100%;
+}
+
+section#item-content > .right {
+	flex-grow: 1;
+}
+
+section#item-content > .right > form > label {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	width: 100%;
+	align-items: center;
+}

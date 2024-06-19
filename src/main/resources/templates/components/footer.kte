@@ -1,17 +1,17 @@
 <footer>
 
-    <a href="/" class="logo">Lantrn</a>
+	<a href="/" class="logo">Lantrn</a>
 
-    <nav>
-        <ul>
-            @for (name in listOf("", "news", "explore", "demo"))
-                <li>
-                    <a href="/${name}">@template.translated_text(key = "page.${name}")</a>
-                </li>
-            @endfor
-        </ul>
-    </nav>
+	<nav>
+		<ul>
+			@for (name in listOf("", "news", "explore", "demo"))
+				<li>
+					<a href="/${name}">@template.translated_text(key = "page.${name}")</a>
+				</li>
+			@endfor
+		</ul>
+	</nav>
 
-    <a>contact@email.com</a>
+	<a href="https://t.me/mantevian">Created by @mantevian</a>
 
 </footer>

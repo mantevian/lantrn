@@ -1,6 +1,7 @@
 package xyz.mantevian.lantrn.generator
 
 import xyz.mantevian.lantrn.svg.*
+import xyz.mantevian.lantrn.svg.color.Color
 import xyz.mantevian.lantrn.svg.component.*
 import xyz.mantevian.lantrn.svg.component.gradient.addStop
 import xyz.mantevian.lantrn.svg.component.gradient.center
@@ -19,20 +20,27 @@ class FirefliesGenerator(
 	fun generate(n: Int): SVG {
 		val w = 800.0 / n
 
-		val svg = SVG(width, height)
-
-		svg.addDefinition(RadialGradientNode().apply {
-			id = "gradient1"
+		svg.addDefinition(RadialGradientNode("gr").apply {
 			focus(centerX = 0.0.px, centerY = 0.0.px, radius = 0.0.px)
 			center(centerX = 0.5.px, centerY = 0.5.px, radius = 1.0.px)
-			addStop(StopNode(offset = 0.0.percent, color = SvgPaint.RGB(random.nextDouble(0.0, 255.0), random.nextDouble(0.0, 255.0), random.nextDouble(0.0, 255.0))))
-			addStop(StopNode(offset = 100.0.percent, color = SvgPaint.RGB(random.nextDouble(0.0, 255.0), random.nextDouble(0.0, 255.0), random.nextDouble(0.0, 255.0))))
+			addStop(
+				StopNode(
+					offset = 0.0.percent,
+					color = SvgPaint.FromColor(Color.RGB.getRandomColor(random))
+				)
+			)
+			addStop(
+				StopNode(
+					offset = 100.0.percent,
+					color = SvgPaint.FromColor(Color.RGB.getRandomColor(random))
+				)
+			)
 		})
 
 		svg.root.addChild(RectNode().apply {
 			position(0.0.px, 0.0.px)
 			size(800.0.px, 800.0.px)
-			color(fill = SvgPaint.FromId("gradient1"))
+			color(fill = SvgPaint.FromId("gr"))
 		})
 
 		val firefly = SymbolNode().apply {
@@ -50,10 +58,22 @@ class FirefliesGenerator(
 
 		for (i in 0..5) {
 			svg.root.addChild(PathNode().apply {
-				color(fill = SvgPaint.None, stroke = SvgPaint.RGB(random.nextDouble(255.0), random.nextDouble(255.0), random.nextDouble(255.0)), strokeWidth = random.nextDouble(1.0, 5.0).px, opacity = random.nextDouble(0.05, 0.2))
+				color(
+					fill = SvgPaint.None,
+					stroke = SvgPaint.FromColor(Color.RGB.getRandomColor(random)),
+					strokeWidth = random.nextDouble(1.0, 5.0).px,
+					opacity = random.nextDouble(0.05, 0.2)
+				)
 				path(SvgPath().apply {
 					move(0.0, 0.0)
-					cubic(random.nextDouble(-200.0, 1000.0), 400.0, random.nextDouble(-200.0, 1000.0), 400.0, 800.0, 800.0)
+					cubic(
+						random.nextDouble(-200.0, 1000.0),
+						400.0,
+						random.nextDouble(-200.0, 1000.0),
+						400.0,
+						800.0,
+						800.0
+					)
 				})
 			})
 		}
@@ -61,7 +81,7 @@ class FirefliesGenerator(
 		var x = 0.0
 		var y = 200.0
 		var r = 135.0
-		val color = SvgPaint.RGB(random.nextDouble(255.0), random.nextDouble(255.0), random.nextDouble(255.0))
+		val color = SvgPaint.FromColor(Color.RGB.getRandomColor(random))
 
 		for (i in 0..n) {
 

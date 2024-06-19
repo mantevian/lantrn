@@ -1,169 +1,167 @@
 h1, h2, h3, p, a {
-    width: fit-content;
-    margin: 0;
+	width: fit-content;
+	margin: 0;
 }
 
 h1.page-title::before {
-    display: block;
+	display: block;
 
-    position: absolute;
-    bottom: calc(-12px - 16px);
+	position: absolute;
+	bottom: calc(-12px - 16px);
 
-    width: 100%;
-    height: 16px;
+	width: 100%;
+	height: 16px;
 
-    border-radius: 6px;
+	border-radius: 6px;
 
-    content: '';
-    background: var(--accent);
+	content: '';
+	background: var(--accent);
 }
 
 h1.page-title {
-    margin-bottom: 1em;
+	margin-bottom: 1em;
 
-    display: inline-block;
+	display: inline-block;
 
-    position: relative;
-    z-index: -1;
+	position: relative;
 
-    font-size: 3rem;
-    font-weight: 900;
+	font-size: 3rem;
+	font-weight: 900;
 }
 
 h1.hero-title {
-    font-size: 9rem;
-    font-weight: 1000;
+	font-size: 9rem;
+	font-weight: 1000;
 }
 
 h1.title::before {
-    display: none;
+	display: none;
 }
 
 h2 {
-    display: inline-block;
+	display: inline-block;
 
-    position: relative;
-    z-index: -1;
+	position: relative;
 
-    margin-bottom: 0.5em;
+	margin-bottom: 0.5em;
 
-    font-size: 2em;
-    font-weight: 800;
+	font-size: 2em;
+	font-weight: 800;
 }
 
 h2::before {
-    display: block;
+	display: block;
 
-    position: absolute;
-    bottom: -0.4em;
+	position: absolute;
+	bottom: -0.4em;
 
-    width: 100%;
-    height: 12px;
+	width: 100%;
+	height: 12px;
 
-    border-radius: 6px;
+	border-radius: 6px;
 
-    content: '';
-    background: var(--accent);
+	content: '';
+	background: var(--accent);
 }
 
 p {
-    letter-spacing: 0.01em;
-    line-height: 133%;
+	letter-spacing: 0.01em;
+	line-height: 133%;
 }
 
 p.hero-subtitle {
-    margin-top: 1em;
-    margin-bottom: 1em;
+	margin-top: 1em;
+	margin-bottom: 1em;
 
-    font-size: 2em;
+	font-size: 2em;
 }
 
 p.subtext {
-    color: var(--gray);
+	color: var(--gray);
 }
 
 a {
-    display: inline-block;
+	display: inline-block;
 
-    padding: 0.75rem;
-    border-radius: 6px;
+	padding: 0.75rem;
+	border-radius: 6px;
 
-    color: black;
-    font-weight: 500;
-    text-decoration: none;
+	color: black;
+	font-weight: 500;
+	text-decoration: none;
 }
 
 a.large {
-    font-size: 1.5em;
-    padding: 1rem;
+	font-size: 1.5em;
+	padding: 1rem;
 }
 
 a.colored {
-    background: var(--accent);
+	background: var(--accent);
 }
 
 a.selected::before {
-    display: block;
+	display: block;
 
-    position: absolute;
-    bottom: 0;
-    left: 0.5em;
+	position: absolute;
+	bottom: 0;
+	left: 0.5em;
 
-    width: calc(100% - 1em);
-    height: 0.5em;
+	width: calc(100% - 1em);
+	height: 0.5em;
 
-    border-radius: 6px;
+	border-radius: 6px;
 
-    content: '';
-    background: var(--accent);
+	content: '';
+	background: var(--accent);
 }
 
 form {
-    margin: 0;
+	margin: 0;
 
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: start;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	align-items: start;
 }
 
 input, select {
-    border-radius: 6px;
+	border-radius: 6px;
 
-    padding: 0.75rem;
+	padding: 0.75rem;
 
-    font-family: "RobotoFlex", sans-serif;
-    font-size: 18px;
-    font-weight: 500;
+	font-family: "RobotoFlex", sans-serif;
+	font-size: 18px;
+	font-weight: 500;
 
-    color: var(--black);
+	color: var(--black);
 }
 
 input[type="text"], input[type="email"], input[type="number"], select {
-    border: 1px solid var(--accent);
+	border: 1px solid var(--accent);
 
-    background: var(--white);
+	background: var(--white);
 }
 
 input[type="submit"] {
-    border: none;
+	border: none;
 
-    background: var(--accent);
+	background: var(--accent);
 }
 
 input[type="submit"], button {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .logo {
-    font-weight: 1000;
-    font-size: 2rem;
+	font-weight: 1000;
+	font-size: 2rem;
 }
 
 input[type="submit"]:hover, button:hover {
-    background: var(--accent-lighter);
+	background: var(--accent-lighter);
 }
 
 a.colored:not(.selected):hover {
-    background: var(--accent-lighter);
+	background: var(--accent-lighter);
 }

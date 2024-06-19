@@ -1,17 +1,25 @@
 a.article-preview {
-    display: block;
+	display: block;
 
-    width: auto;
+	width: auto;
 
-    border-radius: 6px;
+	border-radius: 6px;
 
-    background: var(--half-transparent-white);
+	background: var(--half-transparent-white);
 }
 
 a.article-preview > div {
-    padding: 1rem;
+	padding: 1rem;
 
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+a.article-preview svg, a.article-preview img {
+	width: 16rem;
+	height: 16rem;
+
+	outline: 1px solid var(--gray);
+	border-radius: 6px;
 }

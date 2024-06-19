@@ -17,12 +17,34 @@ class RootNode(viewBox: String, width: SvgUnit?, height: SvgUnit?) : SvgNode("sv
 }
 
 class DefsNode : SvgNode("defs")
+
 class RectNode : SvgNode("rect"), Position, Size, Rounded, Color, Transform
+
+class CircleNode(cx: SvgUnit, cy: SvgUnit, r: SvgUnit) : SvgNode("circle"), Color, Transform {
+	init {
+		set("cx", cx)
+		set("cy", cy)
+		set("r", r)
+	}
+}
+
 class GroupNode : SvgNode("g"), Color, Transform
+
 class PathNode : SvgNode("path"), Path, Color, Transform
-class LinearGradientNode : SvgNode("linearGradient"), LinearGradient
-class RadialGradientNode : SvgNode("radialGradient"), RadialGradient
-class StopNode(offset: SvgUnit? = null, color: SvgPaint.RGB? = null, opacity: Double? = null) : SvgNode("stop") {
+
+class LinearGradientNode(id: String) : SvgNode("linearGradient"), LinearGradient {
+	init {
+		this.id = id
+	}
+}
+
+class RadialGradientNode(id: String) : SvgNode("radialGradient"), RadialGradient {
+	init {
+		this.id = id
+	}
+}
+
+class StopNode(offset: SvgUnit? = null, color: SvgPaint.FromColor? = null, opacity: Double? = null) : SvgNode("stop") {
 	init {
 		set("offset", offset)
 		set("stop-color", color)

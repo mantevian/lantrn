@@ -2,12 +2,18 @@
 
 @param item: Item
 
+<link rel="stylesheet" href="/static/styles/components/item_content.css">
+
 @template.page(pageName = item.name, content = @`
 
-	@template.components.page_title(title = item.name, subtitle = "by ${item.author}")
+	@template.components.page_title(title = item.name, subtitle = "by ${item.author}", backButton = "Back to all images", backUrl = "/explore")
 
-	<section id="item-content">
-		$unsafe{item.svg}
-	</section>
+	@template.components.section_two_columns(id = "item-content",
+	left = @`
+		<div hx-trigger="load" hx-get="/generate?${item.uri}" hx-swap="innerHTML"></div>
+	`,
+	right = @`
+		<a class="download-button colored" href="/generate?${item.uri}" download="${item.uri}.svg">Download</a>
+	`)
 
 `)

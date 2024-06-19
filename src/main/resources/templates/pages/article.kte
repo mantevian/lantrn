@@ -6,10 +6,12 @@
 
 @template.page(pageName = article.name, content = @`
 
-    @template.components.page_title(title = article.name, subtitle = article.description)
+	@template.components.page_title(title = article.name, subtitle = article.description, backButton = "Back to all news", backUrl = "/news")
 
-    <section id="article-content" class="markdown-container">
-        @template.markdown(text = article.content)
-    </section>
+	<section id="article-content" class="markdown-container">
+		<div id="cover-image" hx-trigger="load" hx-get="${article.imageUri}" hx-swap="innerHTML"></div>
+
+		@template.markdown(text = article.content)
+	</section>
 
 `)

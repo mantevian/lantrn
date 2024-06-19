@@ -1,14 +1,13 @@
-@param articleId: Int
-@param name: String
-@param date: String
-@param description: String
+@import xyz.mantevian.lantrn.article.Article
 
-<a class="article-preview" href="/news/${articleId}">
-    <img src="" alt="${name}">
+@param article: Article
 
-    <div>
-        <h2>${name}</h2>
-        <p class="subtext">${date}</p>
-        <p class="description">${description}</p>
-    </div>
+<a class="article-preview" href="/news/${article.id}">
+	<div hx-trigger="load" hx-get="${article.imageUri}" hx-swap="innerHTML"></div>
+
+	<div>
+		<h2>${article.name}</h2>
+		<p class="subtext">${article.dateCreated}</p>
+		<p class="description">${article.description}</p>
+	</div>
 </a>

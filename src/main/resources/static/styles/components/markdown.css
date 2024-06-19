@@ -1,12 +1,16 @@
 .markdown-container h2 {
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
 }
 
 .markdown-container h3 {
-    margin-top: 1em;
+	margin-top: 1em;
 }
 
 .markdown-container p {
-    margin-top: 0.5em;
+	margin-top: 0.5em;
+}
+
+.markdown-container ul > li, .markdown-container ol > li {
+	margin-top: 0.5em;
 }

@@ -1,17 +1,13 @@
-@param itemId: Int
-@param name: String
-@param author: String
-@param description: String
-@param svg: String
+@import xyz.mantevian.lantrn.item.Item
 
-<a class="item-preview" href="/explore/${itemId}">
-	<div>
-		$unsafe{svg}
-	</div>
+@param item: Item
+
+<a class="item-preview" href="/explore/${item.id}">
+	<div hx-trigger="load" hx-get="/generate?${item.uri}&raw" hx-swap="innerHTML"></div>
 
 	<div>
-		<h2>${name}</h2>
-		<p class="subtext">by ${author}</p>
-		<p class="description">${description}</p>
+		<h2>${item.name}</h2>
+		<p class="subtext">by ${item.author}</p>
+		<p class="description">${item.description}</p>
 	</div>
 </a>

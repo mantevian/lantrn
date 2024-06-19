@@ -1,23 +1,26 @@
 section#page-title {
-    height: 16rem;
+	height: 21rem;
 
-    padding-top: 2rem;
+	padding-top: 7rem;
 }
 
 section#page-title > a {
-    display: block;
-    height: 2rem;
+	display: block;
+	height: 2rem;
+
+	padding: 0;
+	color: var(--accent-text);
 }
 
 section#page-title > h1 {
-    height: 3rem;
+	height: 3rem;
 
-    margin-top: 0.5rem;
-    margin-bottom: 0;
+	margin-top: 0.5rem;
+	margin-bottom: 0;
 }
 
 section#page-title > p {
-    margin-top: 3rem;
+	margin-top: 3rem;
 
-    font-size: 2em;
+	font-size: 2em;
 }

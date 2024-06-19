@@ -19,4 +19,7 @@ a.item-preview > div {
 a.item-preview svg, a.item-preview img {
 	width: 16rem;
 	height: 16rem;
+
+	outline: 1px solid var(--gray);
+	border-radius: 6px;
 }

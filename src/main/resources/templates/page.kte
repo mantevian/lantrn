@@ -12,8 +12,9 @@
 	<link rel="stylesheet" href="/static/styles/components/header.css">
 	<link rel="stylesheet" href="/static/styles/text.css">
 	<link rel="stylesheet" href="/static/styles/colors.css">
-	<link rel="stylesheet" href="/static/styles/media.css">
 	<title>@template.translated_text(key = "page.${pageName}")</title>
+
+	<script src="https://unpkg.com/htmx.org@1.9.12"></script>
 </head>
 
 <body>
@@ -24,5 +25,6 @@
 </main>
 @template.components.footer()
 
+<link rel="stylesheet" href="/static/styles/media.css">
 </body>
 </html>
