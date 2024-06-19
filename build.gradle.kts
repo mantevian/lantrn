@@ -39,6 +39,7 @@ dependencies {
 	implementation("io.ktor:ktor-server-jte:$ktor_version")
 	implementation("io.ktor:ktor-server-caching-headers:$ktor_version")
 	implementation("gg.jte:jte:$jte_version")
+	implementation("io.ktor:ktor-server-compression:$ktor_version")
 	implementation("io.ktor:ktor-server-netty-jvm")
 	implementation("ch.qos.logback:logback-classic:$logback_version")
 	implementation("io.ktor:ktor-server-config-yaml:2.3.10")

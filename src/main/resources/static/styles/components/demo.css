@@ -1,32 +1,39 @@
 section#demo {
-    display: flex;
+	display: flex;
 }
 
 section#demo > .left {
-    max-width: 800px;
-    aspect-ratio: 1;
+	max-width: 800px;
+	aspect-ratio: 1;
 
-    outline: 1px solid var(--gray);
-    border-radius: 6px;
-    overflow: hidden;
+	outline: 1px solid var(--gray);
+	border-radius: 6px;
+	overflow: hidden;
 }
 
 section#demo input[type="number"] {
-    width: 16ch;
+	width: 16ch;
 }
 
 section#demo > .left > svg {
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 section#demo > .right {
-    flex-grow: 1;
+	flex-grow: 1;
 }
 
 section#demo > .right > form > label {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    width: 100%;
-    align-items: center;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 1rem;
+	width: 100%;
+	align-items: center;
+}
+
+section#demo .actions {
+	width: 100%;
+	display: flex;
+	gap: 1rem;
 }
