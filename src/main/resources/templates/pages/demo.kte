@@ -16,7 +16,7 @@
 		      hx-trigger="submit,params-loaded">
 			<label>
 				<span>Type:</span>
-				<select name="type">
+				<select name="type" title="The pattern to generate">
 					<option value="simple_grid">Simple Grid</option>
 					<option value="fireflies">Fireflies</option>
 					<option value="waves">Waves</option>
@@ -26,12 +26,14 @@
 
 			<label>
 				<span>Number:</span>
-				<input type="number" name="n">
+				<input type="number" name="n" placeholder="5" value="5" min="0" max="50" required
+				       title="The amount of elements to generate or grid size, depending on Type">
 			</label>
 
 			<label>
 				<span>Seed:</span>
-				<input type="number" name="seed">
+				<input type="number" name="seed" min="0" max="8388608"
+				       title="The randomization number, leave empty to get different results or set to a value to save a result">
 			</label>
 
 			<div class="actions">
@@ -74,6 +76,22 @@
 		downloadButton.setAttribute("href", `/generate?${query}`);
 		downloadButton.setAttribute("download", `${query}.svg`);
 		history.replaceState("lantrn_generator", "", `/demo?${query}`);
+	});
+
+	document.querySelector(`select[name="type"]`).addEventListener("input", e => {
+		/** @type HTMLSelectElement */
+		let el = e.currentTarget;
+		let option = el.options.item(el.selectedIndex);
+
+		let maxNumber = 50;
+
+		switch (option.value) {
+			case "snake":
+				maxNumber = 2000;
+				break;
+		}
+
+		document.querySelector(`input[name="n"]`).max = maxNumber;
 	});
 </script>
 @endraw

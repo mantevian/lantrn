@@ -43,7 +43,7 @@ class SnakeGenerator(
 		})
 
 		for (i in 1..n) {
-			val circle = CircleNode(currX.px, currY.px, 75.0.px).apply {
+			val circle = CircleNode(currX.px, currY.px, 50.0.px).apply {
 				color(
 					fill = SvgPaint.FromColor(Color.HSL(hStart + hOffset, sStart.percent, (lStart + lOffset).percent)),
 					stroke = null

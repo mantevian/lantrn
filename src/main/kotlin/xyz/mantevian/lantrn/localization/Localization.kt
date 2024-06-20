@@ -13,7 +13,8 @@ object Localization {
 		}
 	}
 
-	fun localize(localeName: String, key: String): String = locales[localeName]?.stringMap?.get(key) ?: key
+	fun localize(localeName: String, key: String): String =
+		locales[localeName]?.stringMap?.get(key) ?: key.split(".").last()
 }
 
 data class Locale(val stringMap: Map<String, String>)

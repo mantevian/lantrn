@@ -14,6 +14,7 @@ import xyz.mantevian.lantrn.generator.WavesGenerator
 import xyz.mantevian.lantrn.item.Item
 import xyz.mantevian.lantrn.svg.Encoder
 import java.net.URLEncoder
+import kotlin.math.min
 
 fun Application.configureTemplating() {
 	install(Jte) {
@@ -244,11 +245,11 @@ fun Application.configureTemplating() {
 
 			val svg: String = Encoder.encode(
 				when (type) {
-					"simple_grid" -> SimpleGridGenerator(seed).generate(n)
-					"fireflies" -> FirefliesGenerator(seed).generate(n)
-					"waves" -> WavesGenerator(seed).generate(n)
-					"snake" -> SnakeGenerator(seed).generate(n)
-					else -> SimpleGridGenerator(seed).generate(n)
+					"simple_grid" -> SimpleGridGenerator(seed).generate(min(n, 50))
+					"fireflies" -> FirefliesGenerator(seed).generate(min(n, 50))
+					"waves" -> WavesGenerator(seed).generate(min(n, 50))
+					"snake" -> SnakeGenerator(seed).generate(min(n, 2000))
+					else -> SimpleGridGenerator(seed).generate(min(n, 50))
 				}
 			)
 
